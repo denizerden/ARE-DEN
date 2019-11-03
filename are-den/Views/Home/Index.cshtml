@@ -1,0 +1,103 @@
+﻿@model IEnumerable<are_den.Models.ProjectModel>
+
+
+<div id="myCarousel" class="carousel slide">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+        <div class="item active">
+            <div class="fill" style="background-image: url('../../img/hakkimizda.jpg')"></div>
+            <div class="carousel-caption">
+
+
+            </div>
+        </div>
+        <div class="item">
+            <div class="fill" style="background-image:url('../../img/img3.jpg');"></div>
+            <div class="carousel-caption">
+
+            </div>
+        </div>
+        <div class="item">
+            <div class="fill" style="background-image:url('../../img/anasayfa.jpg');"></div>
+            <div class="carousel-caption">
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <i class="fa fa-angle-left"></i>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+        <i class="fa fa-angle-right"></i>
+    </a>
+</div>
+
+<div class="section">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-12 ">
+
+                <h1 class="align-center">Hakkımızda</h1>
+                <p>
+                    ARE-DEN Turizm ve Yatırımcılığı Ltd 2008 yılında kurulmuş olup; 1991 yılından itibaren Türkiye, Türkmenistan, Kırgızistan, Moldova, Gürcistan, Rusya, Tacikistan, Libya ve Kazakistan’da; alışveriş merkezleri, ofisler, oteller, konutlar, karma yapılar, sanayi tesisleri, altyapı, yol, köprü, tünel, sulama, imalat sanayi tesisleri, kimyasal ve ilaç üretim tesisleri, yiyecek ve içecek işleme tesisleri, devlet binaları, sağlık kompleksleri ve enerji santralleri konularında elde ettiğimiz bilgi birikimi ve tecrübelerimizi, 2008 yılından itibaren ARE-DEN Turizm ve Yatırımcılığı Ltd şirketi altında devam ettirmekteyiz. Oluşturduğumuz kurum kültürümüz, teknik bilgimiz, ulusal ve uluslararası tecrübemiz ile tercih edilen bir firma olup, Firma’mıza olan güveni devam ettirmekte kararlıyız.
+                </p>
+            </div>
+        </div><!-- /.row -->
+
+    </div><!-- /.container -->
+
+</div><!-- /.section -->
+
+
+
+<div class="section" id="recent-projects" style="position: relative;">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-12">
+                <h2 class="section-title">Son Projelerimiz</h2>
+            </div>
+
+            @{
+                var i = 0;
+            }
+
+            @foreach (var item in Model)
+            {
+                if (i > 0 && i % 3 == 0)
+                {
+                @:</div><div class="row">
+                }
+                if (i == 6) { break; }
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <a href="@Url.Action("Details", "Project", new {id = item.Id })" class="link-portfolio">
+                        <div class="overlay-portfolio">
+                            <h3 style="color:white">@Html.DisplayFor(modelItem => item.ProjectName)</h3>
+                           
+                        </div><!-- /.overlay-portfolio -->
+                        <img class="img-responsive img-home-portfolio" src="~/img/@Html.DisplayFor(modelItem =>item.ProjectImage)" alt="portfolio 1">
+                    </a>
+                </div>
+                i++;
+            }
+
+        </div><!-- /.row -->
+
+    </div><!-- /.container -->
+
+</div><!-- /.section -->

@@ -1,0 +1,14 @@
+﻿@model IEnumerable<are_den.Models.Project>
+@{
+    ViewBag.Title = "Project";
+}
+
+<h2>Project</h2>
+
+@foreach (var i in Model)
+{
+    Console.WriteLine(i);
+    <p>
+        @Html.DisplayFor(modelItem => i.ProjectName)
+    </p>
+}
